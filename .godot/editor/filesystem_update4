@@ -4,3 +4,4 @@ res://scenes/screens.tscn
 res://Scripts/Main.gd
 res://Scripts/Game.gd
 res://Scripts/Screens.gd
+res://scenes/player.tscn
