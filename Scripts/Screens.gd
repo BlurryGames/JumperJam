@@ -1,0 +1,1 @@
+class_name Screens extends CanvasLayer
