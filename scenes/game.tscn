@@ -8,7 +8,7 @@
 script = ExtResource("1_q20c5")
 
 [node name="Player" parent="." instance=ExtResource("2_hvnu1")]
-position = Vector2(262, 210)
+position = Vector2(248, 645)
 
 [node name="Platform" parent="." instance=ExtResource("3_mjv2u")]
 position = Vector2(0, 896)
