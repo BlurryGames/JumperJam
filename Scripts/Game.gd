@@ -12,9 +12,14 @@ func _ready()-> void:
 	camera.setupCamera($Player)
 	add_child(camera)
 	
-	createPlatform(Vector2(100.0, 300.0))
-	createPlatform(Vector2(100.0, 500.0))
-	createPlatform(Vector2(100.0, 800.0))
+	var viewportSize: Vector2 = get_viewport_rect().size
+	var platformWidth: float = 136.0
+	var groundLayerPlatformCount: float = (viewportSize.x / platformWidth) + 1.0
+	
+	var groundLayerOffsetY: float = 62.0
+	for i: int in range(groundLayerPlatformCount):
+		var groundLocation: Vector2 = Vector2(i * platformWidth, viewportSize.y - groundLayerOffsetY)
+		createPlatform(groundLocation)
 
 func _process(_delta: float)-> void:
 	if Input.is_action_just_pressed("Quit"):
