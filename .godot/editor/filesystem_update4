@@ -1,8 +1,5 @@
-res://scenes/player.tscn
-res://Scripts/Player.gd
 res://scenes/game.tscn
-res://scenes/platform.tscn
-res://Scripts/Platform.gd
-res://scenes/game_camera.tscn
-res://Scripts/GameCamera.gd
 res://Scripts/Game.gd
+res://scenes/player.tscn
+res://scenes/platform.tscn
+res://scenes/game_camera.tscn
