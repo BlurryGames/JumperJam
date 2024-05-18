@@ -11,9 +11,9 @@ func _ready()-> void:
 	viewportSize = get_viewport_rect().size
 	global_position.x = viewportSize.x * 0.5
 	
-	limit_bottom = viewportSize.y
-	limit_left = 0.0
-	limit_right = viewportSize.x
+	limit_bottom = int(viewportSize.y)
+	limit_left = 0
+	limit_right = int(viewportSize.x)
 	
 	destroyer.position.y = viewportSize.y
 	
@@ -26,7 +26,7 @@ func _process(_delta: float)-> void:
 	if player:
 		var limitDistance: float = 420.0
 		if limit_bottom > player.global_position.y + limitDistance:
-			limit_bottom = player.global_position.y + limitDistance
+			limit_bottom = int(player.global_position.y + limitDistance)
 	
 	var overlappingAreas = destroyer.get_overlapping_areas()
 	if overlappingAreas.size() > 0:
