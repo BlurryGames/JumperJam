@@ -7,6 +7,10 @@ var platformScene: PackedScene = preload("res://scenes/platform.tscn")
 
 var camera: GameCamera = null
 
+var startPlatformY: float = 0.0
+var yDistanceBetweenPlatforms: float = 100.0
+var levelSize: int = 50
+
 func _ready()-> void:
 	camera = cameraScene.instantiate()
 	camera.setupCamera($Player)
@@ -20,6 +24,15 @@ func _ready()-> void:
 	for i: int in range(groundLayerPlatformCount):
 		var groundLocation: Vector2 = Vector2(i * platformWidth, viewportSize.y - groundLayerOffsetY)
 		createPlatform(groundLocation)
+	
+	startPlatformY = viewportSize.y - (yDistanceBetweenPlatforms * 2.0)
+	for i: int in range(levelSize):
+		var maxPositionX = viewportSize.x - platformWidth
+		var randomX = randf_range(0.0, maxPositionX)
+		var location: Vector2 = Vector2.ZERO
+		location.x = randomX
+		location.y = startPlatformY - (yDistanceBetweenPlatforms * i)
+		createPlatform(location)
 
 func _process(_delta: float)-> void:
 	if Input.is_action_just_pressed("Quit"):
