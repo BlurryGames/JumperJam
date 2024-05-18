@@ -5,3 +5,4 @@ res://scenes/platform.tscn
 res://scenes/game_camera.tscn
 res://scenes/level_generator.tscn
 res://Scripts/LevelGenerator.gd
+res://Scripts/GameCamera.gd
