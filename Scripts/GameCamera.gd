@@ -15,18 +15,24 @@ func _ready()-> void:
 	limit_left = 0.0
 	limit_right = viewportSize.x
 	
-	destroyer.position.y = viewportSize.y * 0.5
+	destroyer.position.y = viewportSize.y
 	
 	var rectangleShape: RectangleShape2D = RectangleShape2D.new()
 	var rectangleShapeSize: Vector2 = Vector2(viewportSize.x, 200.0)
 	rectangleShape.set_size(rectangleShapeSize)
-	destroyer.shape = rectangleShape
+	collider.shape = rectangleShape
 
 func _process(_delta: float)-> void:
 	if player:
 		var limitDistance: float = 420.0
 		if limit_bottom > player.global_position.y + limitDistance:
 			limit_bottom = player.global_position.y + limitDistance
+	
+	var overlappingAreas = destroyer.get_overlapping_areas()
+	if overlappingAreas.size() > 0:
+		for a: Platform in overlappingAreas:
+			if a is Platform:
+				a.queue_free()
 
 func _physics_process(_delta: float)-> void:
 	if player:
