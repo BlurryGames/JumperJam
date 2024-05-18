@@ -10,14 +10,6 @@
 [node name="Game" type="Node2D"]
 script = ExtResource("1_q20c5")
 
-[node name="LevelGenerator" parent="." instance=ExtResource("3_fq21a")]
-
-[node name="GroundSprite" type="Sprite2D" parent="."]
-z_index = -10
-scale = Vector2(1, 0.7)
-texture = ExtResource("3_hveuc")
-offset = Vector2(0, -61)
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -25,7 +17,6 @@ motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(0, 1935)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2(0.675, 0.675)
 texture = ExtResource("4_5serr")
 centered = false
 
@@ -34,7 +25,6 @@ motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(0, 1935)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-scale = Vector2(0.675, 0.675)
 texture = ExtResource("5_qqi1m")
 centered = false
 
@@ -43,6 +33,13 @@ motion_scale = Vector2(0.85, 0.85)
 motion_mirroring = Vector2(0, 1935)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-scale = Vector2(0.675, 0.675)
 texture = ExtResource("6_00m6l")
 centered = false
+
+[node name="LevelGenerator" parent="." instance=ExtResource("3_fq21a")]
+
+[node name="GroundSprite" type="Sprite2D" parent="."]
+z_index = -10
+scale = Vector2(1, 0.7)
+texture = ExtResource("3_hveuc")
+offset = Vector2(0, -61)
