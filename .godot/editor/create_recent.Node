@@ -1,10 +1,10 @@
+Label
 TextureRect
 ColorRect
 Control
 AnimationPlayer
 ScreenButton
 TextureButton
-Label
 VBoxContainer
 ScrollContainer
 Sprite2D
