@@ -1,7 +1,7 @@
-res://scenes/game.tscn::e25389ec1fccf50e56511820c46cc546::1716132708::res://.godot/exported/133200997/export-c2a7af834e91ff64325daddf58e45dc0-game.scn
-res://scenes/game_camera.tscn::3b253b78eeaa831e383d5d91d7583a4b::1716132708::res://.godot/exported/133200997/export-e8f66456266ba4f6efd63d7536786c42-game_camera.scn
-res://scenes/level_generator.tscn::fc2f4c850032ae1e469f047d8a93d75b::1716132708::res://.godot/exported/133200997/export-ac08a6c2017dbe69b2b68d3b4d05036d-level_generator.scn
+res://scenes/game.tscn::e25389ec1fccf50e56511820c46cc546::1716134032::res://.godot/exported/133200997/export-c2a7af834e91ff64325daddf58e45dc0-game.scn
+res://scenes/game_camera.tscn::3b253b78eeaa831e383d5d91d7583a4b::1716134032::res://.godot/exported/133200997/export-e8f66456266ba4f6efd63d7536786c42-game_camera.scn
+res://scenes/level_generator.tscn::fc2f4c850032ae1e469f047d8a93d75b::1716134032::res://.godot/exported/133200997/export-ac08a6c2017dbe69b2b68d3b4d05036d-level_generator.scn
 res://scenes/main.tscn::ef1b35b2155fdd3479c72c4dd544203f::1715973591::res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
-res://scenes/platform.tscn::39a0efa1ccb510ca843b03ac8fe85837::1716132708::res://.godot/exported/133200997/export-cc2f727180cd42d9c13434cb55b1ce69-platform.scn
-res://scenes/player.tscn::b334a0498da70e125bc21ea4e18859d8::1716132708::res://.godot/exported/133200997/export-234fb6894ec6226e856ab7f825500d3d-player.scn
+res://scenes/platform.tscn::39a0efa1ccb510ca843b03ac8fe85837::1716134032::res://.godot/exported/133200997/export-cc2f727180cd42d9c13434cb55b1ce69-platform.scn
+res://scenes/player.tscn::b334a0498da70e125bc21ea4e18859d8::1716134032::res://.godot/exported/133200997/export-234fb6894ec6226e856ab7f825500d3d-player.scn
 res://scenes/screens.tscn::3ea9aeda81918b714bf278dd68ec2bf8::1715973474::res://.godot/exported/133200997/export-f4dd2558d8e192684fbae2f0a4360311-screens.scn
