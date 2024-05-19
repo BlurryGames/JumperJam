@@ -6,3 +6,6 @@ res://scenes/level_generator.tscn
 res://Scripts/Player.gd
 res://scenes/screens.tscn
 res://Scripts/Screens.gd
+res://Scripts/Utilities.gd
+res://Scripts/Game.gd
+res://Scripts/Utility.gd

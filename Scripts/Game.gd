@@ -42,8 +42,8 @@ func getParallaxSpriteScale(parallaxSprite: Sprite2D)-> Vector2:
 	var parallaxTexture: Texture2D = parallaxSprite.get_texture()
 	var parallaxTextureWidth: int = parallaxTexture.get_width()
 	
-	var scale: float = viewportSize.x / parallaxTextureWidth
-	var result: Vector2 = Vector2(scale, scale)
+	var widthScale: float = viewportSize.x / parallaxTextureWidth
+	var result: Vector2 = Vector2(widthScale, widthScale)
 	
 	return result
 
