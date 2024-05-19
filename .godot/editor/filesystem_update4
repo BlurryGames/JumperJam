@@ -4,3 +4,5 @@ res://scenes/platform.tscn
 res://scenes/game_camera.tscn
 res://scenes/level_generator.tscn
 res://Scripts/Player.gd
+res://scenes/screens.tscn
+res://Scripts/Screens.gd
