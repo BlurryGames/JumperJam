@@ -12,3 +12,4 @@ res://Scripts/Utility.gd
 res://scenes/title_screen.tscn
 res://scenes/screen_button.tscn
 res://scripts/ScreenButton.gd
+res://scenes/pause_screen.tscn
