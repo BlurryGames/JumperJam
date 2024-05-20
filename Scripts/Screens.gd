@@ -35,8 +35,9 @@ func _on_button_pressed(button: TextureButton)-> void:
 		"PauseClose":
 			print("PauseClosePress")
 		"GameOverRetry":
-			print("GameOverRetryPress")
-			changeScreen(titleScreen)
+			changeScreen(null)
+			await get_tree().create_timer(0.5).timeout
+			startGame.emit()
 		"GameOverBack":
 			changeScreen(titleScreen)
 			deleteLevel.emit()

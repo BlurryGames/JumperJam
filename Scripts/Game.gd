@@ -63,6 +63,8 @@ func setupParallaxLayer(parallaxLayer: ParallaxLayer)-> void:
 		parallaxLayer.motion_mirroring.y = mirroringY
 
 func newGame()-> void:
+	resetGame()
+	
 	player = playerScene.instantiate()
 	player.global_position = playerSpawnPosition
 	player.died.connect(_on_player_died)
