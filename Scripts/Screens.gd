@@ -36,7 +36,9 @@ func _on_button_pressed(button: TextureButton)-> void:
 
 func changeScreen(newScreen: BaseScreen)-> void:
 	if currentScreen:
-		currentScreen.disappear()
+		var disappearTwin: Tween = currentScreen.disappear()
+		await disappearTwin.finished
+		currentScreen.visible = false
 	
 	currentScreen = newScreen
 	if currentScreen:
