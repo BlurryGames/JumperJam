@@ -1,5 +1,7 @@
 class_name Game extends Node2D
 
+signal playerDied(score: int, hightScore: int)
+
 @onready var levelGenerator: LevelGenerator = $LevelGenerator
 @onready var groundSprite: Sprite2D = $GroundSprite
 @onready var parallax1: ParallaxLayer = $ParallaxBackground/ParallaxLayer
@@ -40,7 +42,8 @@ func _process(_delta: float)-> void:
 		get_tree().reload_current_scene()
 
 func _on_player_died()-> void:
-	print("die")
+	hud.visible = false
+	playerDied.emit(1998, 9881)
 
 func getParallaxSpriteScale(parallaxSprite: Sprite2D)-> Vector2:
 	var parallaxTexture: Texture2D = parallaxSprite.get_texture()

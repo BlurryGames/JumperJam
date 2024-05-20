@@ -6,6 +6,8 @@ signal startGame
 @onready var titleScreen: BaseScreen = $TitleScreen
 @onready var pauseScreen: BaseScreen = $PauseScreen
 @onready var gameOverScreen: BaseScreen = $GameOverScreen
+@onready var gameOverScoreLabel: Label = $GameOverScreen/BalckBackground/Box/ScoreLabel
+@onready var gameOverHightScoreLabel: Label = $GameOverScreen/BalckBackground/Box/HightScoreLabel
 
 var currentScreen: BaseScreen = null
 
@@ -48,6 +50,11 @@ func changeScreen(newScreen: BaseScreen)-> void:
 		var appearTween: Tween = currentScreen.appear()
 		await appearTween.finished
 		get_tree().call_group("Buttons", "set_disabled", false)
+
+func gameOver(score: int, hightScore: int)-> void:
+	gameOverScoreLabel.text = "Score: " + str(score)
+	gameOverHightScoreLabel.text = "Best: " + str(hightScore)
+	changeScreen(gameOverScreen)
 
 func registerButtons()-> void:
 	var buttons: Array[Node] = get_tree().get_nodes_in_group("Buttons")
