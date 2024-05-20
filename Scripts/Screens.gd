@@ -42,7 +42,9 @@ func changeScreen(newScreen: BaseScreen)-> void:
 	
 	currentScreen = newScreen
 	if currentScreen:
-		currentScreen.appear()
+		var appearTween: Tween = currentScreen.appear()
+		await appearTween.finished
+		get_tree().call_group("Buttons", "set_disabled", false)
 
 func registerButtons()-> void:
 	var buttons: Array[Node] = get_tree().get_nodes_in_group("Buttons")
