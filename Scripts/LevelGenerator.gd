@@ -18,7 +18,6 @@ func _ready()-> void:
 	viewportSize = get_viewport_rect().size
 	generatedPlatformCount = 0
 	startPlatformY = viewportSize.y - (yDistanceBetweenPlatforms * 2.0)
-	generateLevel(startPlatformY, true)
 
 func _process(_delta: float)-> void:
 	if player:
@@ -57,3 +56,6 @@ func generateLevel(startY: float, generateGround: bool)-> void:
 func setup(_player: Player)-> void:
 	if _player:
 		player = _player
+
+func startGeneration()-> void:
+	generateLevel(startPlatformY, true)

@@ -1,5 +1,7 @@
 class_name Screens extends CanvasLayer
 
+signal startGame
+
 @onready var console: Control = $Debug/ConsoleLog
 @onready var titleScreen: BaseScreen = $TitleScreen
 @onready var pauseScreen: BaseScreen = $PauseScreen
@@ -19,8 +21,9 @@ func _on_toggle_console_pressed()-> void:
 func _on_button_pressed(button: TextureButton)-> void:
 	match button.name:
 		"TitlePlay":
-			print("PlayPress")
-			changeScreen(pauseScreen)
+			changeScreen(null)
+			await get_tree().create_timer(0.5).timeout
+			startGame.emit()
 		"PauseRetry":
 			print("PauseRetryPress")
 			changeScreen(gameOverScreen)

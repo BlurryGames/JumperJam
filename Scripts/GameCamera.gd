@@ -8,6 +8,9 @@ var player: Player = null
 var viewportSize: Vector2 = Vector2.ZERO
 
 func _ready()-> void:
+	if player:
+		global_position.y = player.global_position.y
+	
 	viewportSize = get_viewport_rect().size
 	global_position.x = viewportSize.x * 0.5
 	

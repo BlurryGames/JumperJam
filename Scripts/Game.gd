@@ -5,6 +5,7 @@ class_name Game extends Node2D
 @onready var parallax1: ParallaxLayer = $ParallaxBackground/ParallaxLayer
 @onready var parallax2: ParallaxLayer = $ParallaxBackground/ParallaxLayer2
 @onready var parallax3: ParallaxLayer = $ParallaxBackground/ParallaxLayer3
+@onready var hud: HUD = $LayerUI/HUD
 
 var playerScene: PackedScene = preload("res://scenes/player.tscn")
 var cameraScene: PackedScene = preload("res://scenes/game_camera.tscn")
@@ -29,7 +30,7 @@ func _ready()-> void:
 	setupParallaxLayer(parallax2)
 	setupParallaxLayer(parallax3)
 	
-	newGame()
+	hud.visible = false
 
 
 func _process(_delta: float)-> void:
@@ -65,3 +66,6 @@ func newGame()-> void:
 	
 	if player:
 		levelGenerator.setup(player)
+		levelGenerator.startGeneration()
+	
+	hud.visible = true
