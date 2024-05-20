@@ -14,3 +14,5 @@ res://scenes/main.tscn
 res://Scripts/Main.gd
 res://scenes/game_camera.tscn
 res://Scripts/GameCamera.gd
+res://scenes/player.tscn
+res://Scripts/Player.gd

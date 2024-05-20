@@ -39,6 +39,9 @@ func _process(_delta: float)-> void:
 	elif Input.is_action_just_pressed("Reset"):
 		get_tree().reload_current_scene()
 
+func _on_player_died()-> void:
+	print("die")
+
 func getParallaxSpriteScale(parallaxSprite: Sprite2D)-> Vector2:
 	var parallaxTexture: Texture2D = parallaxSprite.get_texture()
 	var parallaxTextureWidth: int = parallaxTexture.get_width()
@@ -58,6 +61,7 @@ func setupParallaxLayer(parallaxLayer: ParallaxLayer)-> void:
 func newGame()-> void:
 	player = playerScene.instantiate()
 	player.global_position = playerSpawnPosition
+	player.died.connect(_on_player_died)
 	add_child(player)
 	
 	camera = cameraScene.instantiate()
