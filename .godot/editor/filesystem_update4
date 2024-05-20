@@ -19,3 +19,5 @@ res://Scripts/Main.gd
 res://Scripts/Platform.gd
 res://Scripts/Player.gd
 res://Scripts/Utility.gd
+res://scenes/hud.tscn
+res://Scripts/HUD.gd

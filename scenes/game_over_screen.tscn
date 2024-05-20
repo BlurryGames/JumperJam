@@ -74,7 +74,6 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Score"
 label_settings = SubResource("LabelSettings_xk72e")
 horizontal_alignment = 1
 
@@ -91,7 +90,6 @@ offset_right = 20.0
 offset_bottom = 126.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Best"
 label_settings = SubResource("LabelSettings_xk72e")
 horizontal_alignment = 1
 
