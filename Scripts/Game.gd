@@ -33,6 +33,7 @@ func _ready()-> void:
 	setupParallaxLayer(parallax3)
 	
 	hud.visible = false
+	groundSprite.visible = false
 
 
 func _process(_delta: float)-> void:
@@ -76,3 +77,16 @@ func newGame()-> void:
 		levelGenerator.startGeneration()
 	
 	hud.visible = true
+	groundSprite.visible = true
+
+func resetGame()-> void:
+	groundSprite.visible = false
+	levelGenerator.resetLevel()
+	if player:
+		player.queue_free()
+		player = null
+		levelGenerator.player = null
+	
+	if camera:
+		camera.queue_free()
+		camera = null

@@ -59,3 +59,8 @@ func setup(_player: Player)-> void:
 
 func startGeneration()-> void:
 	generateLevel(startPlatformY, true)
+
+func resetLevel()-> void:
+	generatedPlatformCount = 0
+	for p in platformParent.get_children():
+		p.queue_free()

@@ -1,6 +1,7 @@
 class_name Screens extends CanvasLayer
 
 signal startGame
+signal deleteLevel
 
 @onready var console: Control = $Debug/ConsoleLog
 @onready var titleScreen: BaseScreen = $TitleScreen
@@ -37,7 +38,8 @@ func _on_button_pressed(button: TextureButton)-> void:
 			print("GameOverRetryPress")
 			changeScreen(titleScreen)
 		"GameOverBack":
-			print("GameOverBackPress")
+			changeScreen(titleScreen)
+			deleteLevel.emit()
 
 func changeScreen(newScreen: BaseScreen)-> void:
 	if currentScreen:
