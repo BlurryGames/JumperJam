@@ -1,11 +1,17 @@
 class_name Screens extends CanvasLayer
 
 @onready var console: Control = $Debug/ConsoleLog
+@onready var titleScreen: BaseScreen = $TitleScreen
+@onready var pauseScreen: BaseScreen = $PauseScreen
+@onready var gameOverScreen: BaseScreen = $GameOverScreen
+
+var currentScreen: BaseScreen = null
 
 func _ready()-> void:
 	console.visible = false
 	
 	registerButtons()
+	changeScreen(titleScreen)
 
 func _on_toggle_console_pressed()-> void:
 	console.visible = not console.visible
@@ -14,16 +20,27 @@ func _on_button_pressed(button: TextureButton)-> void:
 	match button.name:
 		"TitlePlay":
 			print("PlayPress")
+			changeScreen(pauseScreen)
 		"PauseRetry":
 			print("PauseRetryPress")
+			changeScreen(gameOverScreen)
 		"PauseBack":
 			print("PauseBackPress")
 		"PauseClose":
 			print("PauseClosePress")
 		"GameOverRetry":
 			print("GameOverRetryPress")
+			changeScreen(titleScreen)
 		"GameOverBack":
 			print("GameOverBackPress")
+
+func changeScreen(newScreen: BaseScreen)-> void:
+	if currentScreen:
+		currentScreen.disappear()
+	
+	currentScreen = newScreen
+	if currentScreen:
+		currentScreen.appear()
 
 func registerButtons()-> void:
 	var buttons: Array[Node] = get_tree().get_nodes_in_group("Buttons")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://bbveltw0irqil"]
 
-[ext_resource type="Script" path="res://scripts/ScreenButton.gd" id="1_vnwux"]
+[ext_resource type="Script" path="res://Scripts/ScreenButton.gd" id="1_ehfol"]
 
 [node name="ScreenButton" type="TextureButton" groups=["Buttons"]]
-script = ExtResource("1_vnwux")
+script = ExtResource("1_ehfol")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

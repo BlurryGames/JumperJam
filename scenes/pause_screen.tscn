@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://chbanr05qbqx6"]
+[gd_scene load_steps=8 format=3 uid="uid://chbanr05qbqx6"]
 
+[ext_resource type="Script" path="res://Scripts/BaseScreen.gd" id="1_hqoty"]
 [ext_resource type="Texture2D" uid="uid://b431okdkyaqp6" path="res://assets/textures/ui/Box02.png" id="1_st7p6"]
 [ext_resource type="Texture2D" uid="uid://dkdsv4pj0fhuy" path="res://assets/textures/ui/PausedText.png" id="2_iufdi"]
 [ext_resource type="PackedScene" uid="uid://bbveltw0irqil" path="res://scenes/screen_button.tscn" id="3_ldmlr"]
@@ -14,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hqoty")
 
 [node name="BalckBackground" type="ColorRect" parent="."]
 layout_mode = 1
