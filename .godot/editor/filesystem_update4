@@ -15,3 +15,5 @@ res://Scripts/Player.gd
 res://scenes/shop_screen.tscn
 res://Scripts/ShopScreen.gd
 res://scenes/title_screen.tscn
+res://scenes/manager_iap.tscn
+res://Scripts/ManagerIAP.gd
