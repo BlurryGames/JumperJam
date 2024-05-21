@@ -12,3 +12,6 @@ res://Scripts/BaseScreen.gd
 res://scenes/sound_fx.tscn
 res://Scripts/SoundFX.gd
 res://Scripts/Player.gd
+res://scenes/shop_screen.tscn
+res://Scripts/ShopScreen.gd
+res://scenes/title_screen.tscn

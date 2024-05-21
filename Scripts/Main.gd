@@ -13,6 +13,8 @@ func _ready()-> void:
 	
 	game.playerDied.connect(_on_game_player_died)
 	game.pauseGame.connect(_on_game_pause_game)
+	
+	screens.purchaseSkin.connect(_on_screen_purchase_skin)
 
 func _on_game_player_died(score: int, hightScore: int)-> void:
 	gameInProgress = false
@@ -40,3 +42,7 @@ func _on_screen_delete_level()-> void:
 func _on_game_pause_game()-> void:
 	get_tree().set_pause(true)
 	screens.pauseGame()
+
+func _on_screen_purchase_skin()-> void:
+	if not game.newSkinUnlocked:
+		game.newSkinUnlocked = true

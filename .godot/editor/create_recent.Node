@@ -1,8 +1,8 @@
+Label
+TextureRect
 AudioStreamPlayer
 VisibleOnScreenNotifier2D
 TextureButton
-TextureRect
-Label
 Control
 ColorRect
 CanvasLayer
@@ -12,4 +12,3 @@ VBoxContainer
 ScrollContainer
 Sprite2D
 ParallaxLayer
-ParallaxBackground

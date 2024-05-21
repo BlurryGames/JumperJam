@@ -15,7 +15,7 @@ func _ready()-> void:
 		
 		if osName == "iOS":
 			var screenScale: float = DisplayServer.screen_get_scale()
-			safeAreaTop /= screenScale
+			safeAreaTop /= int(screenScale)
 			
 			UtilityPtr.addLogMessage("Screen scale: " + str(screenScale))
 		

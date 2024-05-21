@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://ljc7slntg8pd"]
+[gd_scene load_steps=10 format=3 uid="uid://ljc7slntg8pd"]
 
 [ext_resource type="Texture2D" uid="uid://bnato7205wvbg" path="res://assets/textures/ui/BigLogo.png" id="1_36n1n"]
 [ext_resource type="Script" path="res://Scripts/BaseScreen.gd" id="1_51sov"]
 [ext_resource type="Texture2D" uid="uid://dg7ho2jrenhtr" path="res://assets/textures/ui/PlayBtn.png" id="2_s0sg2"]
 [ext_resource type="PackedScene" uid="uid://bbveltw0irqil" path="res://scenes/screen_button.tscn" id="2_umm3s"]
+[ext_resource type="Texture2D" uid="uid://b431okdkyaqp6" path="res://assets/textures/ui/Box02.png" id="5_6v1pw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ldsdx"]
+font_size = 36
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_niblg"]
 resource_name = "AnimatePLayButton"
@@ -96,6 +101,39 @@ offset_bottom = 290.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_s0sg2")
+
+[node name="TitleShop" parent="Control" instance=ExtResource("2_umm3s")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 300.0
+offset_right = 90.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_6v1pw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/TitleShop"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -25.0
+offset_right = 48.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SHOP"
+label_settings = SubResource("LabelSettings_ldsdx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

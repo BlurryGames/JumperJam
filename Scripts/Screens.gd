@@ -2,11 +2,15 @@ class_name Screens extends CanvasLayer
 
 signal startGame
 signal deleteLevel
+signal purchaseSkin
 
 @onready var console: Control = $Debug/ConsoleLog
+
 @onready var titleScreen: BaseScreen = $TitleScreen
 @onready var pauseScreen: BaseScreen = $PauseScreen
 @onready var gameOverScreen: BaseScreen = $GameOverScreen
+@onready var shopScreen: BaseScreen = $ShopScreen
+
 @onready var gameOverScoreLabel: Label = $GameOverScreen/BalckBackground/Box/ScoreLabel
 @onready var gameOverHightScoreLabel: Label = $GameOverScreen/BalckBackground/Box/HightScoreLabel
 
@@ -28,6 +32,8 @@ func _on_button_pressed(button: TextureButton)-> void:
 			changeScreen(null)
 			await get_tree().create_timer(0.5).timeout
 			startGame.emit()
+		"TitleShop":
+			changeScreen(shopScreen)
 		"PauseRetry":
 			changeScreen(null)
 			await get_tree().create_timer(0.75).timeout
@@ -48,6 +54,10 @@ func _on_button_pressed(button: TextureButton)-> void:
 		"GameOverBack":
 			changeScreen(titleScreen)
 			deleteLevel.emit()
+		"ShopBack":
+			changeScreen(titleScreen)
+		"ShopPurchaseSkin":
+			purchaseSkin.emit()
 
 func changeScreen(newScreen: BaseScreen)-> void:
 	if currentScreen:

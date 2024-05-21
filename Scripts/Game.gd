@@ -24,7 +24,7 @@ var playerSpawnPosition: Vector2 = Vector2.ZERO
 var score: int = 0
 var highScore: int = 0
 
-var newSkinUnlocked: bool = true
+var newSkinUnlocked: bool = false
 
 func _ready()-> void:
 	viewportSize = get_viewport_rect().size
@@ -54,7 +54,7 @@ func _process(_delta: float)-> void:
 		get_tree().reload_current_scene()
 	
 	if player:
-		var altitude: int = viewportSize.y - player.global_position.y
+		var altitude: int = int(viewportSize.y - player.global_position.y)
 		if score < altitude:
 			score = altitude
 			hud.setScore(score)
