@@ -29,7 +29,6 @@ func _on_button_pressed(button: TextureButton)-> void:
 			startGame.emit()
 		"PauseRetry":
 			print("PauseRetryPress")
-			changeScreen(gameOverScreen)
 		"PauseBack":
 			print("PauseBackPress")
 		"PauseClose":
@@ -58,6 +57,9 @@ func gameOver(score: int, hightScore: int)-> void:
 	gameOverScoreLabel.text = "Score: " + str(score)
 	gameOverHightScoreLabel.text = "Best: " + str(hightScore)
 	changeScreen(gameOverScreen)
+
+func pauseGame()-> void:
+	changeScreen(pauseScreen)
 
 func registerButtons()-> void:
 	var buttons: Array[Node] = get_tree().get_nodes_in_group("Buttons")

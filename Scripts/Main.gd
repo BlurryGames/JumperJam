@@ -22,3 +22,4 @@ func _on_screen_delete_level()-> void:
 
 func _on_game_pause_game()-> void:
 	get_tree().set_pause(true)
+	screens.pauseGame()
