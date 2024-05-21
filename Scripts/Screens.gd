@@ -22,6 +22,7 @@ func _on_toggle_console_pressed()-> void:
 	console.visible = not console.visible
 
 func _on_button_pressed(button: TextureButton)-> void:
+	SoundFXPtr.play("Click")
 	match button.name:
 		"TitlePlay":
 			changeScreen(null)

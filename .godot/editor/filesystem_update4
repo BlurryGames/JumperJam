@@ -9,3 +9,6 @@ res://Scripts/HUD.gd
 res://Scripts/Main.gd
 res://Scripts/Screens.gd
 res://Scripts/BaseScreen.gd
+res://scenes/sound_fx.tscn
+res://Scripts/SoundFX.gd
+res://Scripts/Player.gd

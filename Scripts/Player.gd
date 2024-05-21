@@ -61,9 +61,11 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func jump()-> void:
 	velocity.y = jumpVelocity
+	SoundFXPtr.play("Jump")
 
 func die()-> void:
 	if not dead:
 		dead = true
 		collider.set_deferred("disabled", true)
 		died.emit()
+		SoundFXPtr.play("Fall")

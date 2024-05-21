@@ -29,7 +29,7 @@ func _ready()-> void:
 		UtilityPtr.addLogMessage("Top bar position: " + str(topBar.position))
 
 func _on_pause_button_pressed()-> void:
-	get_tree().set_pause(not get_tree().is_paused())
+	SoundFXPtr.play("Click")
 	pauseGame.emit()
 
 func setScore(newScore: int)-> void:
