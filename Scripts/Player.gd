@@ -4,6 +4,10 @@ signal died
 
 @onready var animator: AnimationPlayer = $AnimationPlayer
 @onready var collider: CollisionShape2D = $CollisionShape2D
+@onready var sprite: Sprite2D = $Sprite2D
+
+var fallAnimationName: String = "Fall"
+var jumpAnimationName: String = "Jump"
 
 var viewportSize: Vector2 = Vector2.ZERO
 
@@ -26,11 +30,11 @@ func _ready()-> void:
 
 func _process(_delta: float)-> void:
 	if velocity.y > 0.0:
-		if animator.current_animation != "Fall":
-			animator.play("Fall")
+		if animator.current_animation != fallAnimationName:
+			animator.play(fallAnimationName)
 	elif velocity.y < 0.0:
-		if animator.current_animation != "Jump":
-			animator.play("Jump")
+		if animator.current_animation != jumpAnimationName:
+			animator.play(jumpAnimationName)
 
 func _physics_process(_delta: float)-> void:
 	velocity.y += gravity
@@ -69,3 +73,9 @@ func die()-> void:
 		collider.set_deferred("disabled", true)
 		died.emit()
 		SoundFXPtr.play("Fall")
+
+func useNewSkin()-> void:
+	fallAnimationName = "FallRed"
+	jumpAnimationName = "JumpRed"
+	if sprite:
+		sprite.set_texture(preload("res://assets/textures/character/Skin2Idle.png"))

@@ -24,6 +24,8 @@ var playerSpawnPosition: Vector2 = Vector2.ZERO
 var score: int = 0
 var highScore: int = 0
 
+var newSkinUnlocked: bool = true
+
 func _ready()-> void:
 	viewportSize = get_viewport_rect().size
 	
@@ -89,6 +91,9 @@ func newGame()-> void:
 	player.global_position = playerSpawnPosition
 	player.died.connect(_on_player_died)
 	add_child(player)
+	
+	if newSkinUnlocked:
+		player.useNewSkin()
 	
 	camera = cameraScene.instantiate()
 	camera.setupCamera(player)
