@@ -1,4 +1,4 @@
-#Tue May 21 21:46:40 CEST 2024
+#Tue May 21 22:24:46 CEST 2024
 base.2=D\:\\GodotProjects\\JumperJam\\android\\build\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
 path.2=6/classes.dex
 base.1=D\:\\GodotProjects\\JumperJam\\android\\build\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
