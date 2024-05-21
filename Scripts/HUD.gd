@@ -1,5 +1,7 @@
 class_name HUD extends Control
 
+signal pauseGame
+
 @onready var topBar: Control = $TopBar
 @onready var topBarBackground: ColorRect = $TopBarBackground
 @onready var scoreLabel: Label = $TopBar/ScoreLabel
@@ -27,7 +29,8 @@ func _ready()-> void:
 		UtilityPtr.addLogMessage("Top bar position: " + str(topBar.position))
 
 func _on_pause_button_pressed()-> void:
-	pass
+	get_tree().set_pause(not get_tree().is_paused())
+	pauseGame.emit()
 
 func setScore(newScore: int)-> void:
 	scoreLabel.text = str(newScore)

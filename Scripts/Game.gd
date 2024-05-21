@@ -1,6 +1,7 @@
 class_name Game extends Node2D
 
 signal playerDied(score: int, hightScore: int)
+signal pauseGame
 
 @onready var levelGenerator: LevelGenerator = $LevelGenerator
 @onready var groundSprite: Sprite2D = $GroundSprite
@@ -39,6 +40,7 @@ func _ready()-> void:
 	
 	hud.visible = false
 	hud.setScore(0)
+	hud.pauseGame.connect(_on_hud_pause_game)
 	groundSprite.visible = false
 	
 	loadScore()
@@ -125,3 +127,6 @@ func loadScore()-> void:
 		file.close()
 	else:
 		highScore = 0
+
+func _on_hud_pause_game()-> void:
+	pauseGame.emit()

@@ -6,3 +6,4 @@ res://scenes/screens.tscn
 res://scenes/level_generator.tscn
 res://scenes/hud.tscn
 res://Scripts/HUD.gd
+res://Scripts/Main.gd
