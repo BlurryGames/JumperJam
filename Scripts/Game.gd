@@ -15,6 +15,8 @@ var cameraScene: PackedScene = preload("res://scenes/game_camera.tscn")
 var player: Player = null
 var camera: GameCamera = null
 
+var saveFilePath: String = "user://highscore.save"
+
 var viewportSize: Vector2 = Vector2.ZERO
 var playerSpawnPosition: Vector2 = Vector2.ZERO
 
@@ -38,7 +40,8 @@ func _ready()-> void:
 	hud.visible = false
 	hud.setScore(0)
 	groundSprite.visible = false
-
+	
+	loadScore()
 
 func _process(_delta: float)-> void:
 	if Input.is_action_just_pressed("Quit"):
@@ -57,6 +60,7 @@ func _on_player_died()-> void:
 	
 	if score > highScore:
 		highScore = score
+		saveScore()
 	
 	playerDied.emit(score, highScore)
 
@@ -108,3 +112,16 @@ func resetGame()-> void:
 	if camera:
 		camera.queue_free()
 		camera = null
+
+func saveScore()-> void:
+	var file: FileAccess = FileAccess.open(saveFilePath, FileAccess.WRITE)
+	file.store_var(highScore)
+	file.close()
+
+func loadScore()-> void:
+	if FileAccess.file_exists(saveFilePath):
+		var file: FileAccess = FileAccess.open(saveFilePath, FileAccess.READ)
+		highScore = file.get_var()
+		file.close()
+	else:
+		highScore = 0
