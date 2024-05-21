@@ -38,10 +38,10 @@ func _ready()-> void:
 	setupParallaxLayer(parallax2)
 	setupParallaxLayer(parallax3)
 	
-	hud.visible = false
+	hud.set_visible(false)
 	hud.setScore(0)
 	hud.pauseGame.connect(_on_hud_pause_game)
-	groundSprite.visible = false
+	groundSprite.set_visible(false)
 	
 	loadScore()
 
@@ -58,7 +58,7 @@ func _process(_delta: float)-> void:
 			hud.setScore(score)
 
 func _on_player_died()-> void:
-	hud.visible = false
+	hud.set_visible(false)
 	
 	if score > highScore:
 		highScore = score
@@ -98,13 +98,14 @@ func newGame()-> void:
 		levelGenerator.setup(player)
 		levelGenerator.startGeneration()
 	
-	hud.visible = true
-	groundSprite.visible = true
+	hud.set_visible(true)
+	groundSprite.set_visible(true)
 	score = 0
 
 func resetGame()-> void:
-	groundSprite.visible = false
+	groundSprite.set_visible(false)
 	hud.setScore(0)
+	hud.set_visible(false)
 	levelGenerator.resetLevel()
 	if player:
 		player.queue_free()

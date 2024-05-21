@@ -28,11 +28,18 @@ func _on_button_pressed(button: TextureButton)-> void:
 			await get_tree().create_timer(0.5).timeout
 			startGame.emit()
 		"PauseRetry":
-			print("PauseRetryPress")
+			changeScreen(null)
+			await get_tree().create_timer(0.75).timeout
+			get_tree().set_pause(false)
+			startGame.emit()
 		"PauseBack":
-			print("PauseBackPress")
+			changeScreen(titleScreen)
+			get_tree().set_pause(false)
+			deleteLevel.emit()
 		"PauseClose":
-			print("PauseClosePress")
+			changeScreen(null)
+			await get_tree().create_timer(0.75).timeout
+			get_tree().set_pause(false)
 		"GameOverRetry":
 			changeScreen(null)
 			await get_tree().create_timer(0.5).timeout
