@@ -19,6 +19,7 @@ var viewportSize: Vector2 = Vector2.ZERO
 var playerSpawnPosition: Vector2 = Vector2.ZERO
 
 var score: int = 0
+var highScore: int = 0
 
 func _ready()-> void:
 	viewportSize = get_viewport_rect().size
@@ -35,6 +36,7 @@ func _ready()-> void:
 	setupParallaxLayer(parallax3)
 	
 	hud.visible = false
+	hud.setScore(0)
 	groundSprite.visible = false
 
 
@@ -48,11 +50,15 @@ func _process(_delta: float)-> void:
 		var altitude: int = viewportSize.y - player.global_position.y
 		if score < altitude:
 			score = altitude
-			print(score)
+			hud.setScore(score)
 
 func _on_player_died()-> void:
 	hud.visible = false
-	playerDied.emit(1998, 9881)
+	
+	if score > highScore:
+		highScore = score
+	
+	playerDied.emit(score, highScore)
 
 func getParallaxSpriteScale(parallaxSprite: Sprite2D)-> Vector2:
 	var parallaxTexture: Texture2D = parallaxSprite.get_texture()
@@ -92,6 +98,7 @@ func newGame()-> void:
 
 func resetGame()-> void:
 	groundSprite.visible = false
+	hud.setScore(0)
 	levelGenerator.resetLevel()
 	if player:
 		player.queue_free()

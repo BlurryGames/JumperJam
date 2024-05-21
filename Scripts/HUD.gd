@@ -2,6 +2,7 @@ class_name HUD extends Control
 
 @onready var topBar: Control = $TopBar
 @onready var topBarBackground: ColorRect = $TopBarBackground
+@onready var scoreLabel: Label = $TopBar/ScoreLabel
 
 func _ready()-> void:
 	var osName: String = OS.get_name()
@@ -27,3 +28,6 @@ func _ready()-> void:
 
 func _on_pause_button_pressed()-> void:
 	pass
+
+func setScore(newScore: int)-> void:
+	scoreLabel.text = str(newScore)
