@@ -18,6 +18,8 @@ var camera: GameCamera = null
 var viewportSize: Vector2 = Vector2.ZERO
 var playerSpawnPosition: Vector2 = Vector2.ZERO
 
+var score: int = 0
+
 func _ready()-> void:
 	viewportSize = get_viewport_rect().size
 	
@@ -41,6 +43,12 @@ func _process(_delta: float)-> void:
 		get_tree().quit()
 	elif Input.is_action_just_pressed("Reset"):
 		get_tree().reload_current_scene()
+	
+	if player:
+		var altitude: int = viewportSize.y - player.global_position.y
+		if score < altitude:
+			score = altitude
+			print(score)
 
 func _on_player_died()-> void:
 	hud.visible = false
@@ -80,6 +88,7 @@ func newGame()-> void:
 	
 	hud.visible = true
 	groundSprite.visible = true
+	score = 0
 
 func resetGame()-> void:
 	groundSprite.visible = false
