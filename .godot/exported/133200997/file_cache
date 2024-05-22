@@ -10,6 +10,6 @@ res://scenes/pause_screen.tscn::ba038296d477b00545d9d5057b3e7eb8::1716232846::re
 res://scenes/hud.tscn::a7572403dd0b927a182aa4773f995533::1716303755::res://.godot/exported/133200997/export-38bf74ff262409a94a41206b2b776d33-hud.scn
 res://scenes/screen_button.tscn::33e1c529d6f34d6e5e56afe0a9bffae0::1716232846::res://.godot/exported/133200997/export-85aec3f35b32c7a44cd119201de00d09-screen_button.scn
 res://scenes/title_screen.tscn::4be334a25650a2a70f98cbf82b196084::1716306279::res://.godot/exported/133200997/export-c315eff7b5f8a8ce1d6c4c72650ddc19-title_screen.scn
-res://scenes/manager_iap.tscn::fe5d7eeae6068ed983cf2bcf0caeb4ca::1716323084::res://.godot/exported/133200997/export-f703f14ce6f48567076d12286128ce5f-manager_iap.scn
+res://scenes/manager_iap.tscn::fe5d7eeae6068ed983cf2bcf0caeb4ca::1716323174::res://.godot/exported/133200997/export-f703f14ce6f48567076d12286128ce5f-manager_iap.scn
 res://scenes/shop_screen.tscn::79453b6f6fbdaa111c6ffc934be9212e::1716306279::res://.godot/exported/133200997/export-69b625ce673ec57366ba984a5bddedd9-shop_screen.scn
 res://scenes/sound_fx.tscn::116982339db9ccfefe2fd0c106946cc6::1716303755::res://.godot/exported/133200997/export-e5982f36a8fc0245d2b0135514231cef-sound_fx.scn
