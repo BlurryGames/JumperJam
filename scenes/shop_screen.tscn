@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://pchwlpgwrf4e"]
+[gd_scene load_steps=10 format=3 uid="uid://pchwlpgwrf4e"]
 
 [ext_resource type="Script" path="res://Scripts/BaseScreen.gd" id="1_pcq28"]
 [ext_resource type="Texture2D" uid="uid://tv6qa6dm6614" path="res://assets/textures/ui/Box01.png" id="2_px6qg"]
@@ -13,6 +13,10 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vse4t"]
 font_size = 36
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wuxrj"]
+font_size = 26
 font_color = Color(0, 0, 0, 1)
 
 [node name="ShopScreen" type="Control"]
@@ -115,3 +119,38 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "NEW SKIN"
 label_settings = SubResource("LabelSettings_vse4t")
+
+[node name="ShopResetPurchases" parent="Box" instance=ExtResource("3_jcm6t")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = 274.5
+offset_right = 115.0
+offset_bottom = 334.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_hyb8i")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Box/ShopResetPurchases"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -25.0
+offset_right = 103.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Reset Purchases"
+label_settings = SubResource("LabelSettings_wuxrj")
+horizontal_alignment = 1
+vertical_alignment = 1

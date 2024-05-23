@@ -26,12 +26,12 @@ func _ready()-> void:
 		
 		googlePayment.query_purchases_response.connect(_on_query_purchases_response)
 		
+		googlePayment.purchase_consumed.connect(_on_purchase_consumed)
+		googlePayment.purchase_consumption_error.connect(_on_purchase_consumption_error)
+		
 		googlePayment.startConnection()
 	else:
 		UtilityPtr.addLogMessage("Android payment not available")
-
-func purchaseSkin()-> void:
-	unlockNewSkin.emit()
 
 func _on_sku_details_query_error(responseID: int, errorMessage: String, skus: Array[String])-> void:
 	UtilityPtr.addLogMessage("Sku query error, respose ID: " + str(responseID)
@@ -48,6 +48,11 @@ func _on_purchase_acknowledgement_error(responseID: int, errorMessage: String, p
 
 func _on_connect_error(responseID: int, debugMessage: String)-> void:
 	UtilityPtr.addLogMessage("Conect error, response ID: " + str(responseID) + " Debug message " + debugMessage)
+
+func _on_purchase_consumption_error(responseID: int, errorMessage: String, purchaseToken: String)-> void:
+	UtilityPtr.addLogMessage("Purchase consumption error, response ID: " + str(responseID)
+	+ " Error message: " + errorMessage
+	+ " Token: " + purchaseToken)
 
 func _on_sku_details_query_completed(skus: Array)-> void:
 	UtilityPtr.addLogMessage("Sku details query completed")
@@ -88,6 +93,9 @@ func _on_query_purchases_response(queryResult)-> void:
 	else:
 		UtilityPtr.addLogMessage("Query purchases failed")
 
+func _on_purchase_consumed(purchaseToken: String)-> void:
+	UtilityPtr.addLogMessage("Purchase consumed successfully!")
+
 func _on_connected()-> void:
 	UtilityPtr.addLogMessage("Connected")
 	
@@ -95,3 +103,16 @@ func _on_connected()-> void:
 
 func _on_disconnected()-> void:
 	UtilityPtr.addLogMessage("Disconnected")
+
+func purchaseSkin()-> void:
+	if googlePayment:
+		var response = googlePayment.purchase(newSkinSku)
+		UtilityPtr.addLogMessage("Purchase attempted, response: " + str(response.status))
+		if response.status != OK:
+			UtilityPtr.addLogMessage("Error purchasing skin!")
+
+func resetPurchases()-> void:
+	UtilityPtr.addLogMessage("Try to reset purchase")
+	if googlePayment:
+		if not newSkinToken.is_empty():
+			googlePayment.consumePurchase(newSkinToken)

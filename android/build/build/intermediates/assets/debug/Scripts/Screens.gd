@@ -3,6 +3,7 @@ class_name Screens extends CanvasLayer
 signal startGame
 signal deleteLevel
 signal purchaseSkin
+signal resetPurchases
 
 @onready var console: Control = $Debug/ConsoleLog
 
@@ -58,6 +59,8 @@ func _on_button_pressed(button: TextureButton)-> void:
 			changeScreen(titleScreen)
 		"ShopPurchaseSkin":
 			purchaseSkin.emit()
+		"ShopResetPurchases":
+			resetPurchases.emit()
 
 func changeScreen(newScreen: BaseScreen)-> void:
 	if currentScreen:
