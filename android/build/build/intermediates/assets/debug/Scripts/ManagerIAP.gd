@@ -4,6 +4,7 @@ signal unlockNewSkin
 
 var googlePayment: Object = null
 var newSkinSku: String = "new_player_skin"
+var newSkinToken: String = ""
 
 func _ready()-> void:
 	if Engine.has_singleton("GodotGooglePlayBilling"):
@@ -17,6 +18,12 @@ func _ready()-> void:
 		googlePayment.sku_details_query_completed.connect(_on_sku_details_query_completed)
 		googlePayment.sku_details_query_error.connect(_on_sku_details_query_error)
 		
+		googlePayment.purchases_updated.connect(_on_purchases_updated)
+		googlePayment.purchase_error.connect(_on_purchase_error)
+		
+		googlePayment.purchase_acknowledged.connect(_on_purchase_acknowledged)
+		googlePayment.purchase_acknowledgement_error.connect(_on_purchase_acknowledgement_error)
+		
 		googlePayment.startConnection()
 	else:
 		UtilityPtr.addLogMessage("Android payment not available")
@@ -26,8 +33,19 @@ func purchaseSkin()-> void:
 
 func _on_sku_details_query_error(responseID: int, errorMessage: String, skus: Array[String])-> void:
 	UtilityPtr.addLogMessage("Sku query error, respose ID: " + str(responseID)
-	+ ", message: " + str(errorMessage)
+	+ ", message: " + errorMessage
 	+ "Skus: " + str(skus))
+
+func _on_purchase_error(responseID: int, errorMessage: String)-> void:
+	UtilityPtr.addLogMessage("Purchase error, response ID: " + str(responseID) + " Error message: " + errorMessage)
+
+func _on_purchase_acknowledgement_error(responseID: int, errorMessage: String, purchaseToken: String)-> void:
+	UtilityPtr.addLogMessage("Purchase acknowledgment error, response ID: " + str(responseID)
+	+ " Error message: " + errorMessage
+	+ " Token: " + purchaseToken)
+
+func _on_connect_error(responseID: int, debugMessage: String)-> void:
+	UtilityPtr.addLogMessage("Conect error, response ID: " + str(responseID) + " Debug message " + debugMessage)
 
 func _on_sku_details_query_completed(skus: Array)-> void:
 	UtilityPtr.addLogMessage("Sku details query completed")
@@ -35,8 +53,21 @@ func _on_sku_details_query_completed(skus: Array)-> void:
 		UtilityPtr.addLogMessage("Sku: ")
 		UtilityPtr.addLogMessage(str(s))
 
-func _on_connect_error(responseID: int, debugMessage: String)-> void:
-	UtilityPtr.addLogMessage("Conect error, response ID: " + str(responseID) + " Debug message " + debugMessage)
+func _on_purchases_updated(purchases: Array)-> void:
+	if purchases.size() > 0:
+		var purchase = purchases[0]
+		var purchaseSku = purchase["skus"][0]
+		UtilityPtr.addLogMessage("Purchased item with sku: " + purchaseSku)
+		if purchaseSku == newSkinSku:
+			newSkinToken = purchase.purchase_token
+			googlePayment.acknowledgePurchase(purchase.purchase_token)
+
+func _on_purchase_acknowledged(purchaseToken: String)-> void:
+	UtilityPtr.addLogMessage("Purchase acknowledged successfully!")
+	if not newSkinToken.is_empty():
+		if newSkinToken == purchaseToken:
+			UtilityPtr.addLogMessage("Unlocking new skin.")
+			unlockNewSkin.emit()
 
 func _on_connected()-> void:
 	UtilityPtr.addLogMessage("Connected")
