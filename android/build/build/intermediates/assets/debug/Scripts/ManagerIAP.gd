@@ -24,6 +24,8 @@ func _ready()-> void:
 		googlePayment.purchase_acknowledged.connect(_on_purchase_acknowledged)
 		googlePayment.purchase_acknowledgement_error.connect(_on_purchase_acknowledgement_error)
 		
+		googlePayment.query_purchases_response.connect(_on_query_purchases_response)
+		
 		googlePayment.startConnection()
 	else:
 		UtilityPtr.addLogMessage("Android payment not available")
@@ -52,6 +54,7 @@ func _on_sku_details_query_completed(skus: Array)-> void:
 	for s in skus:
 		UtilityPtr.addLogMessage("Sku: ")
 		UtilityPtr.addLogMessage(str(s))
+	googlePayment.queryPurchases("inapp")
 
 func _on_purchases_updated(purchases: Array)-> void:
 	if purchases.size() > 0:
@@ -68,6 +71,22 @@ func _on_purchase_acknowledged(purchaseToken: String)-> void:
 		if newSkinToken == purchaseToken:
 			UtilityPtr.addLogMessage("Unlocking new skin.")
 			unlockNewSkin.emit()
+
+func _on_query_purchases_response(queryResult)-> void:
+	if queryResult.status == OK:
+		UtilityPtr.addLogMessage("Query purchases was successful")
+		var purchases = queryResult.purchases
+		var purchase = purchases[0]
+		var purchaseSku = purchase["skus"][0]
+		if newSkinSku == purchaseSku:
+			newSkinToken = purchase.purchase_token
+			if not purchase.is_acknowledged:
+				googlePayment.acknowdlegePurchase(purchase.purchase_token)
+			else:
+				unlockNewSkin.emit()
+				UtilityPtr.addLogMessage("Unlocking new skin because it was purchased previously.")
+	else:
+		UtilityPtr.addLogMessage("Query purchases failed")
 
 func _on_connected()-> void:
 	UtilityPtr.addLogMessage("Connected")
