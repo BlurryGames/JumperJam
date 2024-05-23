@@ -1,6 +1,6 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1716391106
-export_presets.cfg::TextFile::-1::1716320427::0::1::::<><>::
+::res://::1716450884
+export_presets.cfg::TextFile::-1::1716392379::0::1::::<><>::
 icon.svg::CompressedTexture2D::8922391559549258978::1715972374::1715972379::1::::<><>::
 ::res://android/::1716320378
 ::res://android/plugins/::1716320381
@@ -40,14 +40,14 @@ ScoreBox.png::CompressedTexture2D::4445515823690789920::1715972729::1715972729::
 ScoreThrophy.png::CompressedTexture2D::3479523314516880857::1715972729::1715972729::1::::<><>::
 SmallLogo.png::CompressedTexture2D::3218840996815258332::1715972729::1715972729::1::::<><>::
 Welldone.png::CompressedTexture2D::2388173001950708996::1715972729::1715972729::1::::<><>::
-::res://scenes/::1716323174
+::res://scenes/::1716392427
 game.tscn::PackedScene::7815891402646582284::1716303993::0::1::::<><>::res://Scripts/Game.gd<>uid://bmqbir5rg4ctk::::res://scenes/level_generator.tscn<>uid://lptcqg11id48::::res://assets/textures/bg/Ground.png<>uid://chij28okvv4mp::::res://assets/textures/bg/Layer1.png<>uid://bnn7of2b40di3::::res://assets/textures/bg/Layer2.png<>uid://b0htn14fov28o::::res://assets/textures/bg/Layer3.png<>uid://dywox2fty4051::::res://scenes/hud.tscn
 game_camera.tscn::PackedScene::3666756384890180492::1716232847::0::1::::<><>::res://Scripts/GameCamera.gd
 game_over_screen.tscn::PackedScene::1422993800025097727::1716232846::0::1::::<><>::uid://c4e2x3xr4v4yl::::res://assets/textures/ui/Box04.png<>res://Scripts/BaseScreen.gd<>uid://baa34iwf24hqq::::res://assets/textures/ui/Welldone.png<>uid://bbveltw0irqil::::res://scenes/screen_button.tscn<>uid://k8a0em32iift::::res://assets/textures/ui/RestartBtn.png<>uid://bpcnrk26fdew3::::res://assets/textures/ui/menuBtn.png
 hud.tscn::PackedScene::8890103146890929410::1716303755::0::1::::<><>::res://Scripts/HUD.gd<>uid://b4lo84rouvt01::::res://assets/textures/ui/ScoreBox.png<>uid://dgmsh6khvv1rs::::res://assets/textures/ui/PauseBtn.png
 level_generator.tscn::PackedScene::3261792794781099648::1716297962::0::1::::<><>::res://Scripts/LevelGenerator.gd
 main.tscn::PackedScene::6736503825217876071::1716323084::0::1::::<><>::res://Scripts/Main.gd<>uid://djmcubpe1s0jg::::res://scenes/game.tscn<>uid://bfdwv00qunr4m::::res://scenes/screens.tscn<>uid://dqu05l5eoou0o::::res://scenes/manager_iap.tscn
-manager_iap.tscn::PackedScene::8325143227307334016::1716323174::0::1::::<><>::res://Scripts/ManagerIAP.gd
+manager_iap.tscn::PackedScene::8325143227307334016::1716392427::0::1::::<><>::res://Scripts/ManagerIAP.gd
 pause_screen.tscn::PackedScene::5266251798828817781::1716232846::0::1::::<><>::res://Scripts/BaseScreen.gd<>uid://b431okdkyaqp6::::res://assets/textures/ui/Box02.png<>uid://dkdsv4pj0fhuy::::res://assets/textures/ui/PausedText.png<>uid://bbveltw0irqil::::res://scenes/screen_button.tscn<>uid://k8a0em32iift::::res://assets/textures/ui/RestartBtn.png<>uid://bpcnrk26fdew3::::res://assets/textures/ui/menuBtn.png<>uid://bp5c07xrsi5dq::::res://assets/textures/ui/Closebtn.png
 platform.tscn::PackedScene::5625931817382228707::1716211822::0::1::::<><>::uid://cpk6rg3hrsijy::::res://assets/textures/platform/Platform.png<>res://Scripts/Platform.gd
 player.tscn::PackedScene::2922649265354460450::1716303773::0::1::::<><>::uid://r3ni5g6l8mn6::::res://assets/textures/character/Skin1Idle.png<>res://Scripts/Player.gd<>uid://owgrlvwt12wj::::res://assets/textures/character/Skin1Jump.png<>uid://d1qnpvaxps52f::::res://assets/textures/character/Skin2Idle.png<>uid://dfben2itwtmr1::::res://assets/textures/character/Skin2Jump.png

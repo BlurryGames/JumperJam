@@ -1,1 +1,3 @@
 res://scenes/manager_iap.tscn
+res://Scripts/ManagerIAP.gd
+res://scenes/main.tscn
