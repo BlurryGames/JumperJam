@@ -37,6 +37,18 @@ func _ready()-> void:
 	if Engine.has_singleton("InAppStore"):
 		apple_payment = Engine.get_singleton("InAppStore")
 		UtilityPtr.addLogMessage("iOS IAP support is available.")
+		
+		var result = apple_payment.request_product_info({ "product_ids": [apple_product_id] })
+		if result == OK:
+			UtilityPtr.addLogMessage("Succesfully started product info request")
+			
+			var timer: Timer = Timer.new()
+			timer.wait_time = 1.0
+			timer.timeout.connect(check_events)
+			add_child(timer)
+			timer.start()
+		else:
+			UtilityPtr.addLogMessage("Failed to request product info")
 	else:
 		UtilityPtr.addLogMessage("iOS IAP support is not available.")
 
@@ -123,3 +135,11 @@ func resetPurchases()-> void:
 		UtilityPtr.addLogMessage("Try to reset purchase")
 		if not newSkinToken.is_empty():
 			googlePayment.consumePurchase(newSkinToken)
+
+func check_events()-> void:
+	while apple_payment.get_pending_event_count() > 0:
+		var event = apple_payment.pop_pending_event()
+		if event.result == "ok":
+			match event.type:
+				"product_info":
+					UtilityPtr.addLogMessage(str(event))
