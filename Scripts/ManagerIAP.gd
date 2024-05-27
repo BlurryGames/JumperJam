@@ -153,7 +153,18 @@ func check_events()-> void:
 			match event.type:
 				"product_info":
 					UtilityPtr.addLogMessage(str(event))
+					
+					var result = apple_payment.restore_purchases()
+					if result == OK:
+						UtilityPtr.addLogMessage("Restore purchases call is successful")
+					else:
+						UtilityPtr.addLogMessage("Restore purchases call failed")
 				"purchase":
 					if event.product_id == apple_product_id:
 						unlock_new_skin.emit()
 						UtilityPtr.addLogMessage("Purchased the skin IAP, unlock it!")
+				"restore":
+					UtilityPtr.addLogMessage("Restore event: transaction_id: " + event.transaction_id + ", product_id: " + event.product_id)
+					if event.product_id == apple_product_id:
+						unlock_new_skin.emit()
+						UtilityPtr.addLogMessage("Restored previously purchased skin!")
