@@ -1,6 +1,6 @@
 fc8a56933c4b1c8d796fdb8f7a9f9475
-::res://::1716802092
-export_presets.cfg::TextFile::-1::1716734995::0::1::::<><>::
+::res://::1716821611
+export_presets.cfg::TextFile::-1::1716803604::0::1::::<><>::
 icon.svg::CompressedTexture2D::8922391559549258978::1715972374::1715972379::1::::<><>::
 ::res://android/::1716320378
 ::res://android/plugins/::1716320381
@@ -40,6 +40,15 @@ ScoreBox.png::CompressedTexture2D::4445515823690789920::1715972729::1715972729::
 ScoreThrophy.png::CompressedTexture2D::3479523314516880857::1715972729::1715972729::1::::<><>::
 SmallLogo.png::CompressedTexture2D::3218840996815258332::1715972729::1715972729::1::::<><>::
 Welldone.png::CompressedTexture2D::2388173001950708996::1715972729::1715972729::1::::<><>::
+::res://ios/::1716806779
+::res://ios/plugins/::1716807404
+::res://ios/plugins/inappstore/::1716807404
+::res://ios/plugins/inappstore/inappstore.debug.xcframework/::1716807404
+::res://ios/plugins/inappstore/inappstore.debug.xcframework/ios-arm64_armv7/::1716807404
+::res://ios/plugins/inappstore/inappstore.debug.xcframework/ios-arm64_x86_64-simulator/::1716807404
+::res://ios/plugins/inappstore/inappstore.release.xcframework/::1716807404
+::res://ios/plugins/inappstore/inappstore.release.xcframework/ios-arm64_armv7/::1716807404
+::res://ios/plugins/inappstore/inappstore.release.xcframework/ios-arm64_x86_64-simulator/::1716807404
 ::res://scenes/::1716471860
 game.tscn::PackedScene::7815891402646582284::1716303993::0::1::::<><>::res://Scripts/Game.gd<>uid://bmqbir5rg4ctk::::res://scenes/level_generator.tscn<>uid://lptcqg11id48::::res://assets/textures/bg/Ground.png<>uid://chij28okvv4mp::::res://assets/textures/bg/Layer1.png<>uid://bnn7of2b40di3::::res://assets/textures/bg/Layer2.png<>uid://b0htn14fov28o::::res://assets/textures/bg/Layer3.png<>uid://dywox2fty4051::::res://scenes/hud.tscn
 game_camera.tscn::PackedScene::3666756384890180492::1716232847::0::1::::<><>::res://Scripts/GameCamera.gd

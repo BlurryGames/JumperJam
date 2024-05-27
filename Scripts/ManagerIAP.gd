@@ -3,6 +3,7 @@ class_name ManagerIAP extends Node
 signal unlockNewSkin
 
 var googlePayment: Object = null
+var apple_payment: Object = null
 var newSkinSku: String = "new_player_skin"
 var newSkinToken: String = ""
 
@@ -32,6 +33,12 @@ func _ready()-> void:
 		googlePayment.startConnection()
 	else:
 		UtilityPtr.addLogMessage("Android payment not available")
+	
+	if Engine.has_singleton("InAppStore"):
+		apple_payment = Engine.get_singleton("InAppStore")
+		UtilityPtr.addLogMessage("iOS IAP support is available.")
+	else:
+		UtilityPtr.addLogMessage("iOS IAP support is not available.")
 
 func _on_sku_details_query_error(responseID: int, errorMessage: String, skus: Array[String])-> void:
 	UtilityPtr.addLogMessage("Sku query error, respose ID: " + str(responseID)
