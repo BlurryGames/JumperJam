@@ -17,8 +17,8 @@ func _ready()-> void:
 	
 	managerIAP.unlock_new_skin.connect(_on_iap_manager_unlock_new_skin)
 	screens.purchaseSkin.connect(_on_screen_purchase_skin)
-	
 	screens.resetPurchases.connect(_on_screens_reset_purchases)
+	screens.restore_purchases.connect(_on_screens_restore_purchases)
 
 func _on_game_player_died(score: int, hightScore: int)-> void:
 	gameInProgress = false
@@ -56,3 +56,6 @@ func _on_screen_purchase_skin()-> void:
 
 func _on_screens_reset_purchases()-> void:
 	managerIAP.reset_purchases()
+
+func _on_screens_restore_purchases()-> void:
+	managerIAP.restore_purchases()

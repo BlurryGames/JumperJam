@@ -1,3 +1,7 @@
 res://scenes/manager_iap.tscn
 res://Scripts/ManagerIAP.gd
 res://Scripts/Main.gd
+res://scenes/shop_screen.tscn
+res://scenes/screens.tscn
+res://Scripts/Screens.gd
+res://scenes/main.tscn

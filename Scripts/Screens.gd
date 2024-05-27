@@ -4,6 +4,7 @@ signal startGame
 signal deleteLevel
 signal purchaseSkin
 signal resetPurchases
+signal restore_purchases
 
 @onready var console: Control = $Debug/ConsoleLog
 
@@ -61,6 +62,8 @@ func _on_button_pressed(button: TextureButton)-> void:
 			purchaseSkin.emit()
 		"ShopResetPurchases":
 			resetPurchases.emit()
+		"ShopRestorePurchases":
+			restore_purchases.emit()
 
 func changeScreen(newScreen: BaseScreen)-> void:
 	if currentScreen:
