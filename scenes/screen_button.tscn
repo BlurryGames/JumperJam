@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bbveltw0irqil"]
 
-[ext_resource type="Script" path="res://Scripts/ScreenButton.gd" id="1_ehfol"]
+[ext_resource type="Script" uid="uid://1hkho4miyybj" path="res://Scripts/ScreenButton.gd" id="1_ehfol"]
 
 [node name="ScreenButton" type="TextureButton" groups=["Buttons"]]
 script = ExtResource("1_ehfol")
